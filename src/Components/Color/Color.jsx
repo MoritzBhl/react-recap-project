@@ -1,17 +1,34 @@
-import "./Color.css";
+import styled from "styled-components";
+import { css } from "styled-components";
 
 export default function Color({ color }) {
   return (
-    <div
+    <ColorCard
       className="color-card"
       style={{
         background: color.hex,
         color: color.contrastText,
       }}
     >
-      <h3 className="color-card-headline">{color.hex}</h3>
+      <ColorCardHeadLine $variant>{color.hex}</ColorCardHeadLine>
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
-    </div>
+    </ColorCard>
   );
 }
+
+const ColorCard = styled.div`
+  margin: 0px 10px;
+  padding: 5px;
+`;
+
+const ColorCardHeadLine = styled.h3`
+  ${({ $variant }) =>
+    $variant &&
+    css`
+      display: inline;
+      padding: 2px 6px;
+      background: black;
+      color: white;
+    `}
+`;

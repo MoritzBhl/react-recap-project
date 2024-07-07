@@ -1,8 +1,8 @@
 import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
-import "./App.css";
 import ColorForm from "./Components/Color/ColorForm";
 import { useState } from "react";
+import { GlobalStyle } from "../styles";
 
 function App() {
   const [colors, setColors] = useState(initialColors);
@@ -11,6 +11,7 @@ function App() {
   }
   return (
     <>
+      <GlobalStyle />
       <h1>Theme Creator</h1>
       <ColorForm onSubmit={handleSubmit} />
       {colors.map((color) => {
@@ -21,3 +22,6 @@ function App() {
 }
 
 export default App;
+
+// styled components verwenden
+// refactorn
